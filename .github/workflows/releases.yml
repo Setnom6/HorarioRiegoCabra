@@ -44,4 +44,4 @@ jobs:
           prerelease: true
           title: "App Horario Riego"
           files: |
-            dist/AppHorarioRiego.exe
+            dist/AppHorario.exe
