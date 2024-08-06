@@ -33,13 +33,21 @@ jobs:
 
       - name: Create .tar file
         run: |
-          tar -czvf appComprimida.tar.gz dist\*
+          tar -czvf appComprimida.tar.gz dist\AppHorario.exe
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Upload Release Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: appComprimida
+          path: appComprimida.tar.gz
+
+      - name: Create GitHub Release
+        uses: marvinpinto/action-automatic-releases@latest
         with:
           repo_token: "${{ secrets.RIEGO }}"
           automatic_release_tag: "latest"
-          prerelease: False
+          prerelease: false
           title: "App Horario Riego"
           files: |
             appComprimida.tar.gz
+
