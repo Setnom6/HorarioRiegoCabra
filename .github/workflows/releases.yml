@@ -29,7 +29,7 @@ jobs:
           pip install -r requirements.txt  
 
       - name: Build executable
-        run: pyinstaller --name="AppHorario" --windowed --onefile codigo/AppHorario.py
+        run: pyinstaller --name="AppHorario" --windowed --onefile --add-data "codigo/datos/diasYTurnos.txt;datos" --add-data "codigo/datos/horasYTurnos.txt;datos" codigo/AppHorario.py
 
       - name: Create .tar file
         run: |
