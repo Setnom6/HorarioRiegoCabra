@@ -3,10 +3,14 @@ from typing import List, Tuple
 import numpy as np
 
 import os
+import sys
 
 
 class BuscadorHorario:
-    rutaDirectorio = os.path.dirname(os.path.abspath(__file__))
+    if hasattr(sys, '_MEIPASS'):
+            rutaDirectorio = os.path.join(sys._MEIPASS, "datos")
+        else:
+            rutaDirectorio = os.path.dirname(os.path.abspath(__file__))
     diasRuta = os.path.join(rutaDirectorio, "datos/diasYTurnos.txt")
     horariosRuta = os.path.join(rutaDirectorio, "datos/horasYTurnos.txt")
 
