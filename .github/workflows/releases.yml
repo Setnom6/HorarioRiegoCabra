@@ -29,19 +29,17 @@ jobs:
           pip install -r requirements.txt  
 
       - name: Build executable
-        run: pyinstaller --windowed codigo/AppHorario.py
+        run: pyinstaller --name ="AppHorario" --windowed codigo/AppHorario.py
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: your_app_name
-          path: dist/AppHorarioRiego.exe
+      - name: Create .tar file
+        run: |
+          tar -czvf appComprimida.tar.gz dist/AppHorario/*
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.RIEGO }}"
           automatic_release_tag: "latest"
-          prerelease: true
+          prerelease: False
           title: "App Horario Riego"
           files: |
-            dist/AppHorario.exe
+            appComprimida.tar.gz
