@@ -9,7 +9,7 @@ import sys
 class BuscadorHorario:
     if hasattr(sys, '_MEIPASS'):
             rutaDirectorio = os.path.join(sys._MEIPASS, "datos")
-        else:
+    else:
             rutaDirectorio = os.path.dirname(os.path.abspath(__file__))
     diasRuta = os.path.join(rutaDirectorio, "datos/diasYTurnos.txt")
     horariosRuta = os.path.join(rutaDirectorio, "datos/horasYTurnos.txt")
