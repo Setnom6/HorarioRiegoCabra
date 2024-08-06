@@ -29,11 +29,11 @@ jobs:
           pip install -r requirements.txt  
 
       - name: Build executable
-        run: pyinstaller --name ="AppHorario" --windowed codigo/AppHorario.py
+        run: pyinstaller --name="AppHorario" --windowed --onefile codigo/AppHorario.py
 
       - name: Create .tar file
         run: |
-          tar -czvf appComprimida.tar.gz D:\a\HorarioRiegoCabra\HorarioRiegoCabra\build\=AppHorario\*
+          tar -czvf appComprimida.tar.gz D:\a\HorarioRiegoCabra\HorarioRiegoCabra\build\AppHorario\*
 
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
